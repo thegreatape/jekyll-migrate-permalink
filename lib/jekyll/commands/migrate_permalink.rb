@@ -25,7 +25,7 @@ module Jekyll
           site.read
 
           site.posts.docs.each do |post|
-            content = File.read(post.path, Utils.merged_file_read_opts(site, options))
+            content = File.read(post.path)
             output = process_content(content, post.url, opts["stategy"])
             File.write(post.path, output, :mode => "w")
           end
